@@ -2,18 +2,43 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+        <title>
+            {% block title %}
+                Mon site
+                                                                                                            
+                                                                                            
+                                                                            
+                                                            
+                                            
+                            
+            {% endblock %}
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+        {# <link rel="stylesheet" href="{{asset('js/navbar.js')}}"> #}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+        {% block stylesheets %}{% endblock %}
+
     </head>
     <body>
+        {# start of navbar #}
+        <ul id="nav-1"> 
+            <li class="slide1"></li>         
+            <li class="slide2"></li>
+            <li><a href="#/">Alpha</a></li>
+            <li><a href="#/">Beta</a></li>
+            <li><a href="#/">Gamma</a></li>
+            <li><a href="#/">Delta</a></li>
+            <li><a href="#/">Epsilon</a></li>
+        </ul>
+        {# end of navbar #}
+
+        <script> </script>
+
         {% block body %}{% endblock %}
+        <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>
