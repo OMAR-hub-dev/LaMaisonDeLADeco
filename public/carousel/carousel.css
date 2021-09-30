@@ -2,6 +2,12 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+
 body {
 
   padding-bottom: 3rem;
@@ -90,4 +96,24 @@ body {
   .featurette-heading {
     margin-top: 7rem;
   }
+}
+/* --------------------Footer---------------------- */
+.connect a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.end{
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  
+  width: 100%;
+  background-color: #dfeaff;
+  padding-top: 15px;
+  
+}  
+.footer_logo{
+  font-family: 'Pacifico', sans-serif;
+
 }
