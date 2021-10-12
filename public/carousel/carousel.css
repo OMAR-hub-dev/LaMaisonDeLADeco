@@ -12,6 +12,7 @@ body {
 
   padding-bottom: 3rem;
   color: #5a5a5a;
+  position: relative;
 }
 
 
@@ -116,10 +117,9 @@ body {
 }
 
 .end{
-  position: fixed;
+  position:absolute ;
   bottom: 0;
   text-align: center;
-  
   width: 100%;
   background-color: #dfeaff;
   padding-top: 15px;
@@ -128,4 +128,13 @@ body {
 .footer_logo{
   font-family: 'Pacifico', sans-serif;
 
+}
+
+.panier{
+  
+
+}
+.cart-icone{
+  height: 25px;
+ padding-left: 15px; 
 }

@@ -5,17 +5,17 @@
 {% block body %}
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <img src="/uploads/produits/{{ product.illustration }}" alt="{{ product.name }}"class="img-fluid">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7 my-auto ">
         <h3>{{ product.name }}</h3>
         <div class="border border-light">
             <p>{{ product.subtitle }}</p><hr>
             <p>{{ (product.price /100)|number_format(2, ',', '.') }}</p><hr>
             <p class="">{{ product.description }}</p>
         </div>
-       
+        <a href="{{ path('add_to_cart', {'id':product.id} ) }}" class="btn btn-primary my-3">Ajouter au panier</a>
     </div>
 </div> 
 {% endblock %}
