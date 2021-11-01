@@ -13,6 +13,7 @@ body {
   padding-bottom: 3rem;
   color: #5a5a5a;
   position: relative;
+  
 }
 
 
@@ -137,4 +138,8 @@ body {
 .cart-icone{
   height: 25px;
  padding-left: 15px; 
+}
+.block{
+  max-width: 400px;
+  margin: 0 auto;
 }
