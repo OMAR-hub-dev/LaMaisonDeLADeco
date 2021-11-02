@@ -29,7 +29,7 @@ class Order
     /**
      * @ORM\Column(type="datetime_immutable")
      */
-    private $createAt;
+    private $createdAt;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,6 +50,11 @@ class Order
      * @ORM\OneToMany(targetEntity=Orderdetails::class, mappedBy="myOrder")
      */
     private $orderdetails;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPaid;
 
     public function __construct()
     {
@@ -73,14 +78,14 @@ class Order
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
-    public function setCreateAt(\DateTimeImmutable $createAt): self
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -147,6 +152,18 @@ class Order
                 $orderdetail->setMyOrder(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsPaid(): ?bool
+    {
+        return $this->isPaid;
+    }
+
+    public function setIsPaid(bool $isPaid): self
+    {
+        $this->isPaid = $isPaid;
 
         return $this;
     }
