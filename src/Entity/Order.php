@@ -51,10 +51,30 @@ class Order
      */
     private $orderdetails;
 
+    public function getTotal()
+    {
+       $total = null;
+        foreach( $this->getOrderdetails()->getValues() as $product )
+        {
+            $total = $total + ($product->getPrice() * $product->getQuantity() );
+        }
+        return $total;
+    }
+
     /**
      * @ORM\Column(type="boolean")
      */
     private $isPaid;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $reference;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $stripeSession;
 
     public function __construct()
     {
@@ -164,6 +184,30 @@ class Order
     public function setIsPaid(bool $isPaid): self
     {
         $this->isPaid = $isPaid;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getStripeSession(): ?string
+    {
+        return $this->stripeSession;
+    }
+
+    public function setStripeSession(?string $stripeSession): self
+    {
+        $this->stripeSession = $stripeSession;
 
         return $this;
     }

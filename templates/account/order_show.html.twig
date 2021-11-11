@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ order.reference }}{% endblock %}
+
+{% block body %}
+<h1>Mes commandes</h1><hr>
+    <a href="{{ path('account_order') }}">Retour</a>
+    <hr>
+    commande passé le : {{ order.createdAt|date('d/m/Y') }} <br>  
+     Réference de ma commande : {{ order.reference }}  <br>
+     Transporteur choisi : {{ order.transportName }}  
+    <table class="table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Produits </th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Prix</th>
+        <th scope="col">total</th>
+        
+        </tr>
+    </thead>
+    {% for detail in order.orderDetails %}
+    <tbody>
+        <tr>
+        <th >{{ detail.product }}</th>
+        <td>{{ detail.quantity }}</td>
+        <td>{{ ((detail.price)/100) |number_format(2, ',', '.') }} €</td>
+        <td>{{ ((detail.total) /100) |number_format(2, ',', '.') }} €</td>
+        
+        </tr>
+        <tr>
+    </tbody>
+{% endfor %}
+    </table>
+
+    <div class="text-right">
+        Sous-total  : {{ ((order.getTotal) /100) |number_format(2, ',', '.') }} € <br>
+        livraison   : {{( order.transportPrice /100) |number_format(2, ',', '.')}} €<br>
+        total       : {{ ((order.transportPrice + order.getTotal) /100) |number_format(2, ',', '.') }} €
+    
+    </div>
+{% endblock %}

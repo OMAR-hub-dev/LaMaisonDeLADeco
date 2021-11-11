@@ -2,6 +2,10 @@
 
 {% block title %}Paiement de  ma commande{% endblock %}
 
+{% block javascript %}
+    <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
 {% block body %}
     <h2>Mon Recapitulatif</h2>
     <p>Verifier vos informations avant de payer votre commande</p>
@@ -17,7 +21,7 @@
             <div class="form-check">
                 {{ transporteur.name }} <br>
                 {{ transporteur.description }} <br>
-                {{ transporteur.price|number_format(2, ',', '.')  }} €
+                {{ (transporteur.price /100)|number_format(2, ',', '.')  }} €
             </div>
         </div>
         <div class="col-md-6">
@@ -49,12 +53,39 @@
             </div>
                 <hr>
                     <strong>Sous-total : </strong> {{ (total /100)|number_format(2, ',', '.') }} €<br>
-                    <strong>Livraison : </strong>{{ transporteur.price|number_format(2, ',', '.')  }} €
+                    <strong>Livraison : </strong>{{ (transporteur.price /100) |number_format(2, ',', '.')  }} €
                 <hr>
-                    <strong>Total : </strong>{{ ((transporteur.price) + (total /100))|number_format(2, ',', '.')  }} €
+                    <strong>Total : </strong>{{ ((transporteur.price /100) + (total /100))|number_format(2, ',', '.')  }} €
                 <hr>
-                <a href="" class="btn btn-success btn-block my-2">Payer | {{ ((transporteur.price) + (total /100))|number_format(2, ',', '.')  }} €</a>
-        </div>
+                    <form action="/create-checkout-session/{{reference}}" method="POST">
+                        <button type="submit" id="checkout-button" class="btn btn-success btn-block my-2">Payer | {{ ((transporteur.price /100) + (total /100))|number_format(2, ',', '.')  }} €</button>
+                    </form>
+            </div>
         
     </div>
+{% endblock %}
+{% block script %}
+        {# <script type="text/javascript">
+        var stripe = Stripe("pk_live_51JsG1wCEfInZTtcAoUA7AjBqyk5bibQkfkcPzbXGYds2LNoaF1QRQa3nDoUPHbD3BFaEhUZv3alHWgyRca1mL8jj00Ol4ccQKY");
+        var checkoutButton = document.getElementById("checkout-button");
+        checkoutButton.addEventListener("click", function() {
+            fetch("/create-checkout-session", {
+                method: "GET",
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (session) {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(function (result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }       
+            })
+            .catch(function (error) {
+                console.log("Error:", error);
+            });
+        });
+        </script> #}
 {% endblock %}
