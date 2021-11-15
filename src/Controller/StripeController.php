@@ -67,7 +67,7 @@ class StripeController extends AbstractController
         ];
  
         
- 
+        
         $session = Session::create([
             'customer_email'=>$this->getUser()->getEmail(),
             'line_items' => [
@@ -77,11 +77,13 @@ class StripeController extends AbstractController
                 'card',
             ],
             'mode' => 'payment',
-            'success_url' =>$YOUR_DOMAIN . '/commande/merci',
-            'cancel_url' => $YOUR_DOMAIN . '/commande/erreur',
+            'success_url' =>$YOUR_DOMAIN . '/commande/merci/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $YOUR_DOMAIN . '/commande/erreur/{CHECKOUT_SESSION_ID}',
 
         ]);
-      $pay->setStripeSession($session->url);
+        
+      $pay->setStripeSession($session->id);
+  
       $this->entityManager->flush();
         return $this->redirect($session->url,303);
     }      

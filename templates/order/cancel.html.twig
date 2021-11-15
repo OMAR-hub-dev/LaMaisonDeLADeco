@@ -1,9 +1,16 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    domage
+   erreur de paiement
 {% endblock %}
 
 {% block body %}
-    <h1>desolé votre paiement n'est pas passé</h1>
+    <h1>desolé votre paiement n'est pas passé</h2>
+   
+        <p class='form-check'>
+            Bonjour {{ payé.user.firstName }} {{ payé.user.lastName }} </br>
+            IL semblerait que votre paimentest echoué pour la commande n°{{ payé.reference }} </br>
+            une confirmation d'erreur vient de vous être envoyé à l'adress {{ payé.user.email }}
+        </p>
+        <a href="{{ path('order')}}"> Réesayer le paiment</a>
 {% endblock %}

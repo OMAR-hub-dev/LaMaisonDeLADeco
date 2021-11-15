@@ -112,6 +112,9 @@
     "laminas/laminas-code": {
         "version": "4.4.3"
     },
+    "mailjet/mailjet-apiv3-php": {
+        "version": "v1.5.1"
+    },
     "mollie/mollie-api-php": {
         "version": "v2.0.0"
     },

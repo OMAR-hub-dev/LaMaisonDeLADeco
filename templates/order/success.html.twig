@@ -1,9 +1,15 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    bravo
+    confirmation de la commande
 {% endblock %}
 
 {% block body %}
-    <h1>bravo j'ai reussi</h1>
+<h2>Confirmation de commande</h2>
+<p class='form-check'>
+    Bonjour {{ payé.user.firstName }} {{ payé.user.lastName }} </br>
+    Nous vous remercions de votre commande n°{{ payé.reference }} </br>
+    une confirmation vient de vous etre envoyé à l'adress {{ payé.user.email }}
+</p>
+   
 {% endblock %}

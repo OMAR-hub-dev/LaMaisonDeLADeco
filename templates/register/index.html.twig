@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} inscription{% endblock %}
+{% block title %}
+    inscription
+{% endblock %}
 
 {% block body %}
-{{form(form)}}
+    {% if notification %}
+            <div class="alert alert-info">{{ notification  }}</div>
+                <hr>
+        {% endif %}
 
-{% endblock %}
+    {{ form(form) }}{% endblock %}
+    
