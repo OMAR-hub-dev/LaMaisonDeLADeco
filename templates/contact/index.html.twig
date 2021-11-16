@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}contact{% endblock %}
+
+{% block body %}
+<h2>nous contacter</h2>
+    <div class="row">
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        <div class="col-md-9"> 
+            {{form_start(form)}}    
+                {{ form_row(form)|raw }}
+            {{form_end(form)}}
+        </div>
+        <div class="col-md-3 mt-3">
+           <strong> tel : </strong> 06 01 02 03 04 <br>  
+           <strong> Email : </strong> petit.monstre@YOPmail.com  <br>
+           <strong> Adress : </strong> rue des ferté allé 91200
+        </div>
+      
+    </div>  
+{% endblock %}
