@@ -4,12 +4,20 @@
     confirmation de la commande
 {% endblock %}
 
-{% block body %}
-<h2>Confirmation de commande</h2>
-<p class='form-check'>
-    Bonjour {{ payé.user.firstName }} {{ payé.user.lastName }} </br>
-    Nous vous remercions de votre commande n°{{ payé.reference }} </br>
-    une confirmation vient de vous etre envoyé à l'adress {{ payé.user.email }}
-</p>
-   
+{% block content %}
+<section>
+    <div class="row bg-light-brown py-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+                <h2 class='text-center text-star'>Confirmation de commande</h2>
+                <p class=''>
+                    Bonjour {{ payé.user.firstName }} {{ payé.user.lastName }} </br>
+                    Nous vous remercions de votre commande n°{{ payé.reference }} </br>
+                    une confirmation vient de vous etre envoyé à l'adress {{ payé.user.email }}
+                </p>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+</section>  
 {% endblock %}

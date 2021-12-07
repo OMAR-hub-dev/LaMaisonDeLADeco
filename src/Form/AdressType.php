@@ -19,62 +19,72 @@ class AdressType extends AbstractType
             ->add('name',TextType::class,[
                 'label'     =>'quel nom souhaitez-vous donnera votre adresse',
                 'attr'      =>[
-                    'placeholder' =>'Nommez votre adresse'
+                    'placeholder' =>'Nommez votre adresse',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('firstName',TextType::class,[
                 'label'     =>'Prenom',
                 'attr'      =>[
-                    'placeholder' =>'entrez votre prenom'
+                    'placeholder' =>'entrez votre prenom',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('lastName',TextType::class,[
                 'label'     =>'Nom',
                 'attr'      =>[
-                    'placeholder' =>'entrez votre nom'
+                    'placeholder' =>'entrez votre nom',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('company',TextType::class,[
                 'label'     =>'Société',
-                'required'  =>false,
+                'required'  => false,
                 'attr'      =>[
-                    'placeholder' =>'(... votre société)'
+                    'placeholder' =>'(... votre société)',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('address',TextType::class,[
                 'label'     =>'votre adresse',
                 'attr'      =>[
-                    'placeholder' =>'Entrez votre adresse'
+                    'placeholder' =>'Entrez votre adresse',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('postal',TextType::class,[
                 'label'     =>'code postale ',
                 'attr'      =>[
-                    'placeholder' =>'Entrez votre code postale'
+                    'placeholder' =>'Entrez votre code postale',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('city',TextType::class,[
                 'label'     =>'Ville',
                 'attr'      =>[
-                    'placeholder' =>'Entrez Votre ville'
+                    'placeholder' =>'Entrez Votre ville',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('contry',CountryType::class,[
                 'label'     =>'Pays',
                 'attr'      =>[
-                    'placeholder' =>'Entrez Votre pays'
+                    'placeholder' =>'Entrez Votre pays',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('phone',TelType::class,[
                 'label'     =>'téléphone',
                 'attr'      =>[
-                    'placeholder' =>'Entrez votre numéro de téléphone'
+                    'placeholder' =>'Entrez votre numéro de téléphone',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('submit',SubmitType::class,[
                 'label'     =>'Valider',
                 'attr'      =>[
-                    'class'=>'btn btn-block btn-info'
+                    'class'=>'btn btn-block btn-info',
+                    
                 ]
             ])
         ;

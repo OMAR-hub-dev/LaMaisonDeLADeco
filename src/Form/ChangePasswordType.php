@@ -22,20 +22,31 @@ class ChangePasswordType extends AbstractType
         $builder
             ->add('firstName',TextType::class,
             ['disabled'=>true,
-            'label'=>'Mon prénom'])
+            'label'=>'Mon prénom',
+            'attr'=>[
+                'class'     =>'form-contact  ',
+            ]])
             ->add('lastName',TextType::class,
             ['disabled'=>true,
-            'label'=>'Mon nom'])    
+            'label'=>'Mon nom',
+            'attr'=>[
+                'class'     =>'form-contact  ',
+            ]
+            ])    
             ->add('email',EmailType::class,[
                 'disabled'=>true,
-                'label'=>'Mon adress email'
+                'label'=>'Mon adress email',
+                'attr'=>[
+                    'class'     =>'form-contact  ',
+                ]
             ])
             ->remove('roles')
             ->add('old_password',PasswordType::class,[
                 'mapped'=>false,
                 'label'=>'Mot de passe actuel',
                 'attr'=>[
-                    'placeholder'=>'Veuillez saisir votre mot de passe actuel'
+                    'placeholder'=>'Veuillez saisir votre mot de passe actuel',
+                    'class'     =>'form-contact  ',
                 ]
             ] )
             ->add('new_password', RepeatedType::class, [
@@ -47,12 +58,14 @@ class ChangePasswordType extends AbstractType
                 'first_options'=>[
                     'label'=>'Mon nouveau mot de passe',
                     'attr'=>
-                    ['placeholder'=>'. . . merci de saisir votre nouveau mot de passe']
+                    ['placeholder'=>'. . . merci de saisir votre nouveau mot de passe',
+                    'class'     =>'form-contact  ',]
                     ],
                 'second_options'=>[
                     'label'=>'confirmer votre mot de passe',
                     'attr'=>
-                    ['placeholder'=>'. . . merci de confirmer votre nouveau mot de passe']
+                    ['placeholder'=>'. . . merci de confirmer votre nouveau mot de passe',
+                    'class'     =>'form-contact  ',]
                     ],
                 'constraints'=>[
                     new NotBlank([

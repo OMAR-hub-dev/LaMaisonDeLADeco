@@ -2,90 +2,74 @@
 
 {% block title %}Paiement de  ma commande{% endblock %}
 
-{% block javascript %}
-    <script src="https://js.stripe.com/v3/"></script>
-{% endblock %}
 
-{% block body %}
-    <h2>Mon Recapitulatif</h2>
-    <p>Verifier vos informations avant de payer votre commande</p>
-    <div class="row">
-        <div class="col-md-6">
-            
-           <strong>Mon adress de livraison </strong><br>
-            <div class="form-check ">
-                {{ delivery|raw}}
-            </div>
-           
-           <strong> Mon transporteur</strong><br>
-            <div class="form-check">
-                {{ transporteur.name }} <br>
-                {{ transporteur.description }} <br>
-                {{ (transporteur.price /100)|number_format(2, ',', '.')  }} €
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="text-center">
-                <b>Récap de ma commande</b><br>
-                <p>Retrouvez le récapitiatif de vos produits</p>
-            </div>
-            <div class="order-sumary">
-                {% set total = null %}
-                {% for product in cart %}
-               
-                <div class="row">
-                    <div class="col-2">
-                        <img src="/uploads/produits/{{ product.product.illustration }}" alt="{{ product.product.name }}" height="50px" width="50px">
-                    </div>
-                    <div class="col-8 my-auto">
-                        {{ product.product.name }} <br>
-                        x {{ product.quantity }}
-                        <small>{{ product.product.subtitle }} <br> 
-                        </small>
-                    </div>
-                    <div class="col-2 my-auto">
-                        {{ ((product.product.price * product.quantity) /100)|number_format(2, ',', '.') }}
-                    </div>                
-                </div>  
-                    {% set total = total +(product.product.price * product.quantity) %}
 
-                {% endfor %}
-            </div>
-                <hr>
-                    <strong>Sous-total : </strong> {{ (total /100)|number_format(2, ',', '.') }} €<br>
-                    <strong>Livraison : </strong>{{ (transporteur.price /100) |number_format(2, ',', '.')  }} €
-                <hr>
-                    <strong>Total : </strong>{{ ((transporteur.price /100) + (total /100))|number_format(2, ',', '.')  }} €
-                <hr>
-                    <form action="/create-checkout-session/{{reference}}" method="POST">
-                        <button type="submit" id="checkout-button" class="btn btn-success btn-block my-2">Payer | {{ ((transporteur.price /100) + (total /100))|number_format(2, ',', '.')  }} €</button>
-                    </form>
-            </div>
+{% block content %}
+<section class='bg-light-grey-color-shade'>
+    <div class="row py-5">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 card">
+    <h2 class='text-center text-star'>Mon Recapitulatif</h2>
+<pclass='text-center text-brown'>Verifier vos informations avant de payer votre commande</p>
+<div class="row">
+    <div class="col-md-6">
         
+       <strong>Mon adress de livraison </strong><br>
+        <div class="form-check ">
+            {{ delivery|raw}}
+        </div>
+       
+       <strong> Mon transporteur</strong><br>
+        <div class="form-check">
+            {{ transporteur.name }} <br>
+            {{ transporteur.description }} <br>
+            {{ (transporteur.price /100)|number_format(2, ',', '.')  }} €
+        </div>
     </div>
+    <div class="col-md-6">
+        <div class="text-center">
+            <b>Récap de ma commande</b><br>
+            <p>Retrouvez le récapitiatif de vos produits</p>
+        </div>
+        <div class="order-sumary">
+            {% set total = null %}
+            {% for product in cart %}
+           
+            <div class="row">
+                <div class="col-2">
+                    <img src="/uploads/produits/{{ product.product.illustration }}" alt="{{ product.product.name }}" height="50px" width="50px">
+                </div>
+                <div class="col-8 my-auto">
+                    {{ product.product.name }} <br>
+                    x {{ product.quantity }}
+                    <small>{{ product.product.subtitle }} <br> 
+                    </small>
+                </div>
+                <div class="col-2 my-auto">
+                    {{ ((product.product.price * product.quantity) /100)|number_format(2, ',', '.') }}
+                </div>                
+            </div>  
+                {% set total = total +(product.product.price * product.quantity) %}
+
+            {% endfor %}
+        </div>
+            <hr>
+                <strong>Sous-total : </strong> {{ (total /100)|number_format(2, ',', '.') }} €<br>
+                <strong>Livraison : </strong>{{ (transporteur.price /100) |number_format(2, ',', '.')  }} €
+            <hr>
+                <strong>Total : </strong>{{ ((transporteur.price /100) + (total /100))|number_format(2, ',', '.')  }} €
+            <hr>
+                <form action="/create-checkout-session/{{reference}}" method="POST">
+                    <button type="submit" id="checkout-button" class="btn btn-success btn-block my-2">Payer | {{ ((transporteur.price /100) + (total /100))|number_format(2, ',', '.')  }} €</button>
+                </form>
+        </div>
+    
+</div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    
+</section>
+
 {% endblock %}
-{% block script %}
-        {# <script type="text/javascript">
-        var stripe = Stripe("pk_live_51JsG1wCEfInZTtcAoUA7AjBqyk5bibQkfkcPzbXGYds2LNoaF1QRQa3nDoUPHbD3BFaEhUZv3alHWgyRca1mL8jj00Ol4ccQKY");
-        var checkoutButton = document.getElementById("checkout-button");
-        checkoutButton.addEventListener("click", function() {
-            fetch("/create-checkout-session", {
-                method: "GET",
-            })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (session) {
-                return stripe.redirectToCheckout({ sessionId: session.id });
-            })
-            .then(function (result) {
-                if (result.error) {
-                    alert(result.error.message);
-                }       
-            })
-            .catch(function (error) {
-                console.log("Error:", error);
-            });
-        });
-        </script> #}
-{% endblock %}
+

@@ -2,65 +2,143 @@
 
 
 {% block title %}Home{% endblock %}
-{% block carousel %}Home{% endblock %}
+{# {% block carousel %}Home{% endblock %} #}
 
-{% block body %}
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
+{% block content %}
+
+
+
+  {#---------- session header----------------- #}
+    <header class = "header bg-light-brown flex" id = "home">
+      <div class = "contenaire">
+          <div class = "header-content grid text-center">
+              <div class = "header-left">
+                  <h1>Meilleur design de collection de meubles</h1>
+                  <p class = "text">Améliorez l'atmosphère grâce à un design d'intérieur axé sur des objectifs visant à apporter de la valeur à votre environnement</p>
+                
+                  <a href = "{{ path('products') }}" class = "btn-header text-white bg-brown">Achetez maintenant</a>
+              </div>
+
+              <div class = "header-right">
+                  <img src = "{{ asset('asset/images/header-sofa-img.png') }}">
+              </div>
+              <img src = "{{ asset('asset/images/header-shape.png') }}" class = "header-shape">
+          </div>
+      </div>
+    </header>  
+
+{# ------------------end-session header ----------------#}
+
+       {#----------------- session best product --------------- #}
+       <section id = "new-products" class = "new-products py bg-light-grey-color-shade">
+ <div class = "">
+     <div class = "section-title py-5 text-center">
+         <h2 class='first-title'>top new products</h2>
+         <p class = "lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+         <div class = "line"></div>
+     </div>
+
+     <div class = "row ">
         {% for product in best %}
-          <div class="col-md-3">
+        
             {% include 'product/single_product.html.twig' %}
 
-          </div>
+         
         {% endfor %}
-      </div><!-- /.row -->
+    </div>
+</div>
+</section>
+    
+      {# --------- end session best product ------------------- #}
 
 
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+       {# -----------session catalague------------------- #}
+        <section class = "catalog bg-brown" id = "catalog">
+          <div class = "catalog-content grid text-center">
+            <div class = "catalog-left "></div>
+            <div class = "catalog-right text-white flex py">
+                <div class = "section-title">
+                    <h2>Des idées qui vont vous redonner des couleurs</h2>
+                </div>
+                <p class = "text">Des centaines d’articles pour s’inspirer, découvrir notre actualité et trouver les bonnes idées pour aménager sa maison avec style et selon ses envies</p>
+                <p class = "text "></p>
+            </div>
           </div>
-          <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        </section>
+       {# -----------end session catalague------------------- #}
 
+      {# --------------- feedback section ------------ #}
+      <section class = "feedback py bg-light-grey-color-shade" id = "feedback">
+      <div class = "contenaire">
+          <div class = "section-title py-5 text-center">
+              <h2 class='first-title' >Le Mag'</h2>
+              <p class = "lead ">Tous les conseils qu’il vous faut pour que votre décoration fasse la une !</p>
+              <div class = "line"></div>
           </div>
-        </div>
 
-      <hr class="featurette-divider">
+          <div class = "feedback-inner">
+              <div class = "feedback-container grid">
+                  <div class = "feedback-item bg-white text-center" data-id = "1">
+                      <img src = "{{ asset('asset/images/quote-icon-dark.png') }}" class = "quote-icon">
+                      <p class = "text text-grey">Une cuisine fonctionnelle, c’est bien.  nous avons réuni 10 bonnes idées déco. Et si vous veniez piocher dedans pour créer votre cuisine design ?</p>
+                      <div class = "client">
+                          <img src = "{{ asset('asset/images/client-1.jpg') }}">
+                      </div>
+                  </div>
 
-      <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-        </div>
-        <div class="col-md-5 order-md-1">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                  <div class = "feedback-item bg-white text-center" data-id = "2" id = "feedback-display">
+                      <img src = "{{ asset('asset/images/quote-icon.png') }}" class = "quote-icon">
+                      <p class = "text text-grey">Quand il s’agit de créer un univers cosy et poétique pour la chambre de bébé, il ne faut pas passer à côté des incontournables déco</p>
+                      <div class = "client">
+                          <img src = "{{ asset('asset/images/client-2.jpg') }}">
+                      </div>
+                  </div>
 
-        </div>
+                  <div class = "feedback-item bg-white text-center" data-id = "3">
+                      <img src = "{{ asset('asset/images/quote-icon-dark.png') }}" class = "quote-icon">
+                      <p class = "text text-grey">Noël prépare déjà son grand retour ! Chaque année, les 24 et 25 décembre sont une bonne occasion de sortir les bougies et décorations de nos placards.</p>
+                      <div class = "client">
+                          <img src = "{{ asset('asset/images/client-3.jpg') }}">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class = "feedback-btns flex">
+              <button class = "feedback-btn feedback-active-btn"></button>
+              <button class = "feedback-btn"></button>
+              <button class = "feedback-btn"></button>
+          </div>
+      </div>
+  </section>
+  <!-- end of feedback section -->
+
+  <!-- newsletter section -->
+  <section class = "newsletter py bg-light-grey-color-shade" id = "newsletter">
+  <div class = "contenaire">
+      <div class = "section-title  py-5 text-center">
+          <h2 class='first-title'>Prolongez l'aventure</h2>
+          <p class = "lead">Profitez de 20€ offerts sur votre 1ère commande dès 200€ et recevez nos offres et actualités.</p>
+          <div class = "line"></div>
       </div>
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-        </div>
-        <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
-        </div>
+      <div class = "newsletter-content">
+          <form>
+              <div class = "input-group flex">
+                  <input type = "email" class = "form-control bg-light-grey">
+                  <button type = "submit" class = "btn- bg-dark text-white text-uppercase">subscribe</button>
+              </div>
+          </form>
       </div>
+  </div>
+</section>
+<!-- end of newsletter section -->
 
-      <hr class="featurette-divider">
+        
 
-      <!-- /END THE FEATURETTES -->
+        
+
+        
 
     
-{% endblock body %}
+{% endblock  %}

@@ -2,13 +2,20 @@
 
 {% block title %}Mes commandes{% endblock %}
 
-{% block body %}
-<h1>Mes commandes</h1><hr>
-    <a href="{{ path('account') }}">Retour</a>
-    <hr>
-        {% if orders|length == 0 %}
-           <p class="text-center"> Vous n'avez pas encore passé de commandes dans votre espace. </p> 
-        {% else %}
+{% block content %}
+<div class="row py-5">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <h1 class='text-start text-center'>Mes commandes</h1><hr>
+        <a href="{{ path('account') }}" class='btn'>Retour</a>
+        <hr>
+            {% if orders|length == 0 %}
+            <p class="text-center"> Vous n'avez pas encore passé de commandes dans votre espace. </p> 
+            {% else %}
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
             <div class="row">
                
               

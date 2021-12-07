@@ -1,23 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}contact{% endblock %}
+{% block title %}{% endblock %}
 
-{% block body %}
-<h2>nous contacter</h2>
+{% block content %}
+<section class='bg-light-grey '>
+<div class="container py-5 text-centre">
+    
     <div class="row">
         {% for message in app.flashes('notice') %}
             <div class="alert alert-info">{{ message }}</div>
         {% endfor %}
         <div class="col-md-9"> 
-            {{form_start(form)}}    
-                {{ form_row(form)|raw }}
-            {{form_end(form)}}
+            <div class="container">
+            
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                    <h2 class='first-title text-center'>nous contacter</h2>
+                          {{  form(form)|raw }}
+                    </div>
+                    <div class="col-md-2"></div>
+               
+                
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 mt-3">
-           <strong> tel : </strong> 06 01 02 03 04 <br>  
-           <strong> Email : </strong> petit.monstre@YOPmail.com  <br>
-           <strong> Adress : </strong> rue des ferté allé 91200
-        </div>
+       
+        
+        <div class = "footer-item col-md-3 mt-5 pt-3">
+    <h3>nous contacter</h3>
+    <p class = "text">34 rue de la faisanderie 94150 - fr </p>
+    <p class = "text">tel : (+33) 6 01 02 03 04 </p>
+    <p class = "text">Email: la.maisonde.la.deco@gmail.com</p>
+    <ul class = "social-links flex">
+    <li>
+        <a href = "#" class = "flex"><i class = "fab fa-facebook-f"></i></a>
+    </li>
+    <li>
+        <a href = "#" class = "flex"><i class = "fab fa-instagram"></i></a>
+    </li>
+    <li>
+        <a href = "#" class = "flex"><i class = "fab fa-twitter"></i></a>
+    </li>
+    <li>
+        <a href = "#" class = "flex"><i class = "fab fa-pinterest"></i></a>
+    </li>
+</ul>
+</div>
       
-    </div>  
+    </div> 
+</div> 
+</section>
 {% endblock %}

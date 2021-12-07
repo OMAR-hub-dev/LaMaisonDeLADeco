@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Document" content="aaaaaaaa">
+        <link rel="stylesheet" href="{{ asset('css/stylea.css') }}">
+        <title>La maison de la déco</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+         
+          <nav class="navbar sticky-top  navbar-expand-md  bg-dark" id="navbare">
+            <div class="container-fluid ">
+              <div  class="m-0">
+                <a class="navbar-brand  text" href="{{ path('home') }}"><img src="{{ asset('asset/images/Logo3.png') }}" alt="logo" class="logo"></a>
+              </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class=" collapse navbar-collapse justify-content-md-center " id="navbarCollapse">
+                  <ul class="navbar-nav   mb-md-0">
+                    <li class="nav-item me-4">
+                      <a class="nav-link text active" aria-current="page" href="{{ path('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item me-4">
+                      <a class="nav-link text" href="{{ path('products') }}">Produits</a>
+                    </li>
+                    <li class="nav-item me-4">
+                      <a class="nav-link text " href="">Qui somme nous</a>
+                    </li>
+                    <li class="nav-item me-4">
+                      <a class="nav-link text" href="{{ path('contact') }}">Contact</a>
+                    </li>
+                    {% if app.user %}
+                    <li class="nav-item me-4">
+                      <a class="nav-link compte" href="{{ path('account') }}">Mon compte</a>
+                    </li>
+                    <li class="nav-item me-4">
+                      <a class="nav-link compte" href="{{ path('app_logout') }}">Déconnexion</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item me-4">
+                      <a class="nav-link text" href="{{ path('app_login') }}">Connexion</a>
+                    </li>
+                    <li class="nav-item me-4">
+                      <a class="nav-link text" href="{{ path('register') }}">Inscription</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item me-4">
+                      <a class="nav-link text" href="{{ path('cart') }}"><img src="{{ asset('asset/images/cart.2.png') }}" alt="mon panier" class="cart-icone"></a>
+                    </li>
+                  
+                  </ul>
+              </div>
+            </div>
+            
+          </nav>
+           {# end of navbar #} 
+       
+            
+                    
+          <div class="">
+          {% block content %}{% endblock %}
+          </div><!-- /.container -->
+
+
+               
+        
+        
+          
+                 
+        </main>
+        <script src="{{ asset('js/typed.min.js') }}"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+          
+          
+          
+      {% block script %}{% endblock %}
+      {% block javascript %}{% endblock %}
+    
+    </body>
+    
+     <footer class="row session-1 row-cols-5 pt-3 ">
+    <div class="ccontainer">
+      <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      </a>
+      <p class="text-muted">&copy; 2021</p>
+    </div>
+
+    <div class="col">
+
+    </div>
+
+    <div class="col">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+      </ul>
+    </div>
+  </footer> 
+
+ 
+</html>

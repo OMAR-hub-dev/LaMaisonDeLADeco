@@ -1,30 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{product.name}} - La Boutique du sport{% endblock %}
+{% block title %}{{product.name}}  La Maison de D&CO {% endblock %}
 
-{% block body %}
+{% block content %}
 
 <div class="row">
     <div class="col-md-5">
-        <img src="/uploads/produits/{{ product.illustration }}" alt="{{ product.name }}"class="img-fluid">
+        <img src="/uploads/produits/{{ product.illustration }}" alt="{{ product.name }}"class="img-fluid ">
     </div>
     <div class="col-md-7 my-auto ">
         <h3>{{ product.name }}</h3>
         <div class="border border-light">
             <p>{{ product.subtitle }}</p><hr>
-            <p>{{ (product.price /100)|number_format(2, ',', '.') }}</p><hr>
+              <div class = "price">
+                  <span class = "old text-grey">{{ ((product.price /100)+(((product.price)*15)/100)/100)|number_format(2, ',', '.') }} €</span>
+                  <span class = "new text-brown">{{ (product.price /100)|number_format(2, ',', '.') }} €</span>
+              </div>
+              <hr>
             <p class="">{{ product.description }}</p>
         </div>
-        <a href="{{ path('add_to_cart', {'id':product.id} ) }}" class="btn btn-primary my-3">Ajouter au panier</a>
+       <a href="{{ path('add_to_cart', {'id':product.id} ) }}" class=" btn btn-product  bg-light-purple  ">Ajouter au panier</a>
+
     </div><hr>
 
-    <h2>nos meilleurs ventes</h2>
-    {% for product in best %}
-    <div class="col-md-3">
-       
-      {% include 'product/single_product.html.twig' %}
+  <div class="section-title titre text-center">
+    <h2 class='titre m-auto'>nos meilleurs ventes</h2>
+    <div class = "line"></div>
+  </div>
+    <div class = "row ">
+        {% for product in best %}
+        
+            {% include 'product/single_product.html.twig' %}
 
+                {% endfor %}
     </div>
-  {% endfor %}
+  
 </div> 
 {% endblock %}

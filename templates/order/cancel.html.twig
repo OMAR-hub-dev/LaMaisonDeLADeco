@@ -4,8 +4,12 @@
    erreur de paiement
 {% endblock %}
 
-{% block body %}
-    <h1>desolé votre paiement n'est pas passé</h2>
+{% block content %}
+<section>
+    <div class="row bg-light-brown py-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+    <h1 class='text-center text-star'>desolé votre paiement n'est pas passé</h2>
    
         <p class='form-check'>
             Bonjour {{ payé.user.firstName }} {{ payé.user.lastName }} </br>
@@ -13,4 +17,9 @@
             une confirmation d'erreur vient de vous être envoyé à l'adress {{ payé.user.email }}
         </p>
         <a href="{{ path('order')}}"> Réesayer le paiment</a>
+    </div>
+<div class="col-md-3"></div>
+</div>
+
+</section>  
 {% endblock %}

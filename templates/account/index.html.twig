@@ -2,15 +2,63 @@
 
 {% block title %}Mon compte{% endblock %}
 
-{% block body %}
-<h1>Mon compte</h1>
-    bienvenue  {{app.user.firstName}}, dans cette espace
-<hr>
-    {% if  is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('admin') }}">Vous pouvez accéder au backoffice</a><br>
-    {% endif %}
-    <a href="{{path('account_password')}}">Modifier mon mot de passe</a><br>
-    <a href="{{path('account_adress')}}">Gerer mes adresses</a> <br>
-    <a href="{{path('account_order')}}">Mes commandes</a>
+{% block content %}
+<section class=''>
+    <div class="container">
+        <div class="row py-5">
+            <div class='text-center py-5'>        
+                <h1 class='first-title'>Mon compte</h1>
+                <span>bienvenue  {{app.user.firstName}}, dans cette espace Vous pouvez </span>
+                </div>
+            <hr>
+            {% if  is_granted('ROLE_ADMIN') %}
+            <div class="col-md-3 mt-4">
+                
+                <div class="card bg-light-grey" style="width: 250px; height: 420px;">
+                <a href="{{ path('admin') }}" class="text-decoration-none">
+                <img src="{{ asset('asset/images/manager.jpg') }}" style="width: 248px; height: 330px;" class=" img-fluid " alt="back-office"></a>
+                <div class="card-body ">
+                <a href="{{ path('admin') }}" class="text-decoration-none">
+                <p class="first-title text-center "> Accéder au back-office</p></a>
+                </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="col-md-3 mt-4">
+                <a href="{{ path('account_password') }}">
+                <div class="card bg-light-grey" style="width: 250px; height: 420px;">
+                <img src="{{ asset('asset/images/password.png') }}" class="img-fluid " alt="password">
+                <div class="card-body">
+                <p class="first-title text-center">Modifier votre mot de passe</p>
+                </div>
+                </div></a>
+            </div>
+            <div class="col-md-3 mt-4">
+                <a href="{{ path('account_adress') }}">
+                <div class="card bg-light-grey" style="width: 250px; height: 420px;">
+                <img src="{{ asset('asset/images/address.jpg') }}" style="width: 248px; height: 330px;" class="img-fluid " alt="address">
+                <div class="card-body">
+                <p class="first-title text-center">Gerer les adresses</p>
+                </div>
+                </div></a>
+            </div>
+            
+            <div class="col-md-3 mt-4">
+                <a href="{{ path('account_order') }}">
+                <div class="card bg-light-grey" style="width: 250px; height: 420px;">
+                <img src="{{ asset('asset/images/package.jpg') }}" class="img-fluid" style="width: 248px; height: 330px;" alt="order">
+                <div class="card-body">
+                <p class="first-title text-center">Consulter les commandes</p>
+                </div>
+                </div></a>
+            </div>
+    
    
+    
+    
+        </div>
+    </div>
+
+    
+</section>  
 {% endblock %}

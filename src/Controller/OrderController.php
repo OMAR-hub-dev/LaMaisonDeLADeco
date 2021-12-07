@@ -32,10 +32,12 @@ class OrderController extends AbstractController
         if (!$this->getUser()->getAdresses()->getValues()){
             return $this->redirectToRoute('account_adress_add');
         }
+        
+        
         $form = $this->createForm(OrderType::class, null, [
             'user'=>$this->getUser(),
         ]);
-        
+       
         return $this->render('order/index.html.twig',[
             'form'=>$form->createView(),
             'cart'=>$cart->getFull()
@@ -57,7 +59,7 @@ class OrderController extends AbstractController
             $delivery_content .='</br>'. $delivery->getPhone(); 
 
             if ($delivery->getCompany()){
-                $delivery_content .='<br>'. $delivery->getCompany;
+                $delivery_content .='<br>'. $delivery->getCompany();
             }
 
             $delivery_content .='</br>'. $delivery->getAddress();

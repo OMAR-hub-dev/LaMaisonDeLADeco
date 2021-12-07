@@ -29,7 +29,7 @@ class OrderType extends AbstractType
                 'label'     => 'Choisissez votre mode de livraison ',
                 'required'  => true,
                 'class'     =>Transport::class,
-                
+                // 'choices'   =>$user->getName(),
                 'multiple'  =>false,
                 'expanded'  =>true,
 
@@ -37,7 +37,7 @@ class OrderType extends AbstractType
             ->add('submit', SubmitType:: class, [
                 'label'=>'valider ma commande',
                 'attr'  =>[
-                    'class'=>'btn btn-success btn-block'
+                    'class'=>'btn '
                 ]
             ])
         ;

@@ -18,19 +18,20 @@ class DashboardController extends AbstractDashboardController
 {
     /**
      * @Route("/admin", name="admin")
+     *  
      */
     public function index(): Response
     {
         // redirect to some CRUD controller
-        $routeBuilder = $this->get(AdminUrlGenerator::class);
-
-        return $this->redirect($routeBuilder->setController(OrderCrudController::class)->generateUrl());
+        return $this->render('bundles/EasyAdminBundle/Welcome.html.twig',[
+            
+        ]);
     }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('La boutique du sport');
+            ->setTitle('La maison de la déco');
     }
 
     public function configureMenuItems(): iterable

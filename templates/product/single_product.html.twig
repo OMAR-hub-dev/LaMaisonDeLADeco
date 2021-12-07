@@ -1,6 +1,54 @@
-<div class="product-item text-center my-3">
-<a href="{{ path('product', {'slug': product.slug }) }}"><img style="max-width:px;"class="rounded img-fluid my-3"src="/uploads/produits/{{product.illustration}}" alt="{{product.name}}"></a>
-<h4>{{ product.name }}</h4>
-<span class="product-subtitle">{{ product.subtitle }}</span>
-<span class="product-price">{{ (product.price /100)|number_format(2, ',', '.') }}</span>
-</div>
+ <!-- top new products section -->
+ {# <section id = "new-products" class = "new-products py bg-light-grey-color-shade">
+ <div class = "contenaire">
+     <div class = "section-title text-center">
+         <h2>top new products</h2>
+         <p class = "lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+         <div class = "line"></div>
+     </div>
+
+     <div class = "new-products-content grid"> #}
+    
+     <div class = "new-product-item  col-md-6 col-lg-4 col-xl-3 mx-5 my-5  {{ product.category }} " >
+        <div class = "collection-img position-relative">
+            <a href="{{ path('product', {'slug': product.slug }) }}"><img src = "/uploads/produits/{{product.illustration}}"  alt = "{{product.name}}" class = "card-img   "></a>
+            <span class = "position-absolute bg-light-purple text-white d-flex align-items-center justify-content-center">- 15%</span>
+        </div>
+        <div class = "text-center">
+            <div class = "rating mt-3">
+                <span class = "text-star"><i class = "fas fa-star"></i></span>
+                <span class = "text-star"><i class = "fas fa-star"></i></span>
+                <span class = "text-star"><i class = "fas fa-star"></i></span>
+                <span class = "text-star"><i class = "fas fa-star"></i></span>
+                <span class = "text-star"><i class = "fas fa-star"></i></span>
+            </div>
+            <p class = "text-capitalize my-1">{{ product.name }}</p>
+            <p class = "text-capitalize my-1">{{ product.subtitle }}</p>
+            <div class = "price mb-3">
+                        <span class = "old text-grey">{{ ((product.price /100)+(((product.price)*15)/100)/100)|number_format(2, ',', '.') }} €</span>
+                        <span class = "new text-brown">{{ (product.price /100)|number_format(2, ',', '.') }} €</span>
+            </div>
+            <a href="{{ path('product', {'slug': product.slug }) }}" class="btn-product text-white bg-light-purple  ">Voir</a>
+        </div>
+    </div>
+
+      
+<!-- end of top new products section -->
+
+{# <div class="card border-0 " style="">
+    <a href="{{ path('product', {'slug': product.slug }) }}"><img src="/uploads/produits/{{product.illustration}}" class="card-img-top  rounded my-1" alt="{{product.name}}"> </a>
+    <div class="card-body mb-2 rounded d-flex text-center flex-column ">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">{{ product.subtitle }}</p>
+    <p class="product-price">{{ (product.price /100)|number_format(2, ',', '.') }} €</p>
+    <a href="{{ path('product', {'slug': product.slug }) }}" class="btn show border-0 btn-primary">Voir</a>
+    </div>
+</div> #}
+
+{# <div class="product-item text-center my-3">
+
+<a href=""><img style="max-width:px;"class="rounded img-fluid my-3"src="" alt=""></a>
+<h4></h4>
+<span class="product-subtitle"></span>
+
+</div> #}

@@ -4,11 +4,21 @@
     inscription
 {% endblock %}
 
-{% block body %}
+{% block content %}
+<section>
+    <div class="row bg-light-brown py-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
     {% if notification %}
             <div class="alert alert-info">{{ notification  }}</div>
                 <hr>
         {% endif %}
 
-    {{ form(form) }}{% endblock %}
+    {{ form(form) }}
+</div>
+<div class="col-md-3"></div>
+</div>
+
+</section>
+{% endblock %}
     

@@ -19,31 +19,36 @@ class ContactType extends AbstractType
             ->add('prenom', TextType::class,[
                 'label'=>'votre prenom',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre prenom '
+                    'placeholder'=>'... ',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('nom', TextType::class,[
                 'label'=>'votre nom',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre nom'
+                    'placeholder'=>'... ',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('email', EmailType::class,[
                 'label'=>'votre email',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre email'
+                    'placeholder'=>'... ',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('content', CKEditorType::class ,[
                 'label'=>'votre message',
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre message '
+                    'placeholder'=>'... ',
+                    'class'     =>'form-contact  ',
                 ]
             ])
             ->add('submit', SubmitType::class,[
                 'label'=>'Envoyer',
                 'attr'  =>[
-                    'class'=>'btn-block btn-success'
+                    'placeholder'=>'... ',
+                    'class'     =>'form-contact  ',
                 ]
             ])
         ;

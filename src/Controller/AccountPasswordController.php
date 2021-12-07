@@ -37,6 +37,7 @@ class AccountPasswordController extends AbstractController
                }else{
                 $notification ='Votre mot de passe actuel n\'est pas le bon';
             }
+            
         }
         return $this->render('account/password.html.twig',[
             'form'=>$form->createView(),

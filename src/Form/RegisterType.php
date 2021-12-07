@@ -30,15 +30,18 @@ class RegisterType extends AbstractType
                             ]),
                         
                         'attr'=>
-                            ['placeholder'=>'. . . merci de saisir votre prenom']])
+                            ['placeholder'=>'. . . merci de saisir votre prenom',
+                            'class'     =>'filtre bg-brown']])
             ->add('lastName',TextType::class,[
                 'label'=>'Votre nom',
                 'attr'=>
-                    ['placeholder'=>'. . . merci de saisir votre nom']])
+                    ['placeholder'=>'. . . merci de saisir votre nom',
+                    'class'     =>'filtre bg-brown']])
             ->add('email',EmailType::class, [
                 'label'=>'Votre email',
                 'attr'=>
-                    ['placeholder'=>'. . . merci de saisir votre email']])
+                    ['placeholder'=>'. . . merci de saisir votre email',
+                    'class'     =>'filtre bg-brown']])
             ->remove('roles')
             ->add('password', RepeatedType::class, [
                 'type'=>PasswordType::class, 
@@ -48,12 +51,14 @@ class RegisterType extends AbstractType
                 'first_options'=>[
                     'label'=>'mot de passe',
                     'attr'=>
-                    ['placeholder'=>'. . . merci de saisir votre mot fde passe']
+                    ['placeholder'=>'. . . merci de saisir votre mot de passe',
+                    'class'     =>'filtre bg-brown']
                     ],
                 'second_options'=>[
                     'label'=>'confirmer votre mot de passe',
                     'attr'=>
-                    ['placeholder'=>'. . . merci de confirmer votre mot de passe']
+                    ['placeholder'=>'. . . merci de confirmer votre mot de passe',
+                    'class'     =>'filtre bg-brown']
                     ],
                 'constraints'=>[
                     new NotBlank([
