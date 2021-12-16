@@ -3,26 +3,33 @@
 {% block title %}Mot de passe oublié{% endblock %}
 
 {% block content %}
-<div class="block">
-    {% for message in app.flashes('notice') %}
-        <div class="alert alert-info">{{ message }}</div>
-    {% endfor %}
+<div class="row bg-light-grey py-5">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 py-5 ">
+        <div class="block">
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
 
-    <form method="post" class="container">
-       
-
-        <h1 class="h3 mb-3 font-weight-normal">Reinitialiser mon passe</h1>
-        <label for="inputEmail">Votre email</label>
-        <input type="email" value="" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    
-
+        <form method="post" class="container">
         
 
-        <button class="btn btn-lg btn-info btn-sm mt-3 " type="submit">
-            Valider
-        </button>
-        <hr>
-            <p class="text-center my-4">Ou souhaitez-vous <a href="{{ path('app_login') }}"> Vous connecter </a></p>
-    </form>
+            <h1 class="h3 py-5 fw-bolder text-center">Reinitialiser mon passe</h1>
+            <label for="inputEmail">Votre email</label>
+            <input type="email" value="" name="email" id="inputEmail" class="filtre text-dark" autocomplete="email" required autofocus>
+        
+
+            
+
+            <button class="btn btn-lg btn-info btn-sm mt-3 " type="submit">
+                Valider
+            </button>
+            <hr>
+                <p class="text-center my-4">Ou souhaitez-vous <a href="{{ path('app_login') }}"> Vous connecter </a></p>
+        </form>
+        </div>
+    </div>
+    <div class="col-lg-3"></div>
 </div>
+
 {% endblock %}

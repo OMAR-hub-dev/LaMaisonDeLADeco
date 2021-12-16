@@ -3,23 +3,16 @@
 {% block title %}Mes commandes{% endblock %}
 
 {% block content %}
-<div class="row py-5">
+<div class="row py-5 bg-light-grey">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-        <h1 class='text-start text-center'>Mes commandes</h1><hr>
-        <a href="{{ path('account') }}" class='btn'>Retour</a>
+        <h1 class='text-start text-center my-4'>Mes commandes</h1><hr>
+        <a href="{{ path('account') }}" class='btn w-50 my-3'>Retour</a>
         <hr>
             {% if orders|length == 0 %}
             <p class="text-center"> Vous n'avez pas encore passé de commandes dans votre espace. </p> 
             {% else %}
-    </div>
-    <div class="col-lg-3"></div>
-</div>
-
-            <div class="row">
-               
-              
-               <table class="table table-hover">
+            <table class="table table-hover my-5 text-center">
                     <thead>
                         <tr>
                         <th scope="col">Passé le </th>
@@ -45,4 +38,12 @@
                   
             </div>
         {% endif %}
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+            <div class="row">
+               
+              
+               
 {% endblock %}

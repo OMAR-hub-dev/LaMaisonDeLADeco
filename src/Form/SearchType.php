@@ -34,10 +34,10 @@ class SearchType extends AbstractType
                 
                
                 ])
-            ->remove('submit',SubmitType::class,[
-                'label'=>'Filter',
+            ->add('submit',SubmitType::class,[
+                'label'=>'Chercher',
                 'attr'=>[
-                    'class'=>'btn filtre border-0 btn-block btn-info'
+                    'class'=>' '
                 ]
             ])
                 ;

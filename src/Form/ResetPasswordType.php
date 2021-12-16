@@ -25,12 +25,14 @@ class ResetPasswordType extends AbstractType
             'first_options'=>[
                 'label'=>'Mon nouveau mot de passe',
                 'attr'=>
-                ['placeholder'=>'. . . merci de saisir votre nouveau mot de passe']
+                ['placeholder'=>'. . . merci de saisir votre nouveau mot de passe',
+                'class'     =>'form-contact  ']
                 ],
             'second_options'=>[
                 'label'=>'confirmer votre mot de passe',
                 'attr'=>
-                ['placeholder'=>'. . . merci de confirmer votre nouveau mot de passe']
+                ['placeholder'=>'. . . merci de confirmer votre nouveau mot de passe',
+                'class'     =>'form-contact  ']
                 ],
             'constraints'=>[
                 new NotBlank([

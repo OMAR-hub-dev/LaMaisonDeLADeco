@@ -35,7 +35,7 @@ class ResetPasswordController extends AbstractController
             $user = $entityManager->getRepository(User::class)->findOneByEmail($request->get('email'));
          
             if($user){
-                // enregistrement dans bdd de reset_password
+                // enregistrement en bdd de reset_password avec user, token, creatAt
                 $reset_password = new ResetPassword();
                 $reset_password->setUser($user);
                 $reset_password->setToken(uniqid());
@@ -48,12 +48,12 @@ class ResetPasswordController extends AbstractController
 
                 $url = $this->generateUrl('update_password', ['token'=>$reset_password->getToken()]);
 
-                $text = "Bonjour ".$user->getFullNAme()."<br/> Vous avez demandé à réinitialiser votre mot de passe </br> </br>x" ;
+                $text = "Bonjour ".$user->getFullNAme()."<br/> Vous avez demandé à réinitialiser votre mot de passe </br> </br>" ;
                 $text .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href='".$url."'>mettre à jour votre mot de passe </a>" ;
                 $mail = new Mail();
                 $mail->send( $user->getEmail(), $user->getFullName(), 'Réinitialiser votre mot de passe sur le site', $text);
     
-                $this->addFlash('notice', 'un email de réinitialisiation est été envoyé .');
+                $this->addFlash('notice', 'un email de réinitialisiation a été envoyé .');
 
             }else{
                 $this->addFlash('notice', 'Cette adresse email est inconnu');
@@ -77,7 +77,7 @@ class ResetPasswordController extends AbstractController
         }
 
        $now = new DateTime();
-       if ($now > $reset_password->getCreatedAt()->modify('+ 3 hour'))
+       if ($now > $reset_password->getCreatedAt()->modify('+ 1 hour'))
         {
            $this->addFlash('notice', 'votre demande de changer le mot de passe a expiré. Merci de la renouveller');
             return $this->redirectToRoute('reset_password');

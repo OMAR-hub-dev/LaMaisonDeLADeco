@@ -56,6 +56,11 @@
                       <a class="nav-link page" href="{{ path('register') }}">Inscription</a>
                     </li>
                     {% endif %}
+                    {% if  is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item me-4">
+                      <a class="nav-link page" href="{{ path('admin') }}">back-office</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item me-4">
                       <a class="nav-link page" href="{{ path('cart') }}"><img src="{{ asset('asset/images/shopping-cart1.png') }}" alt="mon panier" class="cart-icone"></a>
                     </li>
@@ -94,8 +99,8 @@
               </div>
               
               <div class = "footer-item">
-                  <h3>Contact Us</h3>
-                  <p class = "text">34 rue de la faisanderie 94150 - fr </p>
+                  <h3>nous contacter</h3>
+                  <p class = "text">34 rue de la faisanderie 91200 Athis-Mons - fr </p>
                   <p class = "text">tel : (+33) 6 01 02 03 04 </p>
                   <p class = "text">Email: la.maisonde.la.deco@gmail.com</p>
                   <ul class = "social-links flex">
@@ -138,7 +143,7 @@
 
       <div class = "footer-end bg-dark">
           <div class = "container grid">
-              <p class = "text text-white text-center">&copy; Copyright 2021. All Right Reserved. Designed and Developed by Oulaya Omar</p>
+              <p class = "text text-white text-center">&copy; Copyright 2021. Tous droits réservés. Conçu et développé par Oulaya Omar</p>
               <div class = "flex payment">
                   <img src = "{{ asset('asset/images/pay_2.png') }}">
                   <img src = "{{ asset('asset/images/pay_3.png') }}">

@@ -48,7 +48,7 @@ class ContactType extends AbstractType
                 'label'=>'Envoyer',
                 'attr'  =>[
                     'placeholder'=>'... ',
-                    'class'     =>'form-contact  ',
+                    'class'     =>'  ',
                 ]
             ])
         ;

@@ -247,9 +247,9 @@ header{
     border-radius: 10px 100px / 120px  !important;
     padding: 2rem 2rem;
     outline: 0;
-    width: 100%;
+    width: 80%;
     font-size:x-large;
-    color:var(--brown-color);
+    color:black;
     
 }
 

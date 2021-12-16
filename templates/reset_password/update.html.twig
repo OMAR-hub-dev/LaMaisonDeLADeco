@@ -3,12 +3,19 @@
 {% block title %}Mot de passe oublié{% endblock %}
 
 {% block content %}
-<div class="block">
-    {% for message in app.flashes('notice') %}
-        <div class="alert alert-info">{{ message }}</div>
-    {% endfor %}
-<h1 class="h3 mb-3 font-weight-normal">Reinitialiser mon passe</h1>
+<div class="row bg-light-grey py-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+            <div class="block">
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+            <h1 class="text-center text-star py-5">Reinitialiser mon passe</h1>
 
-    {{ form(form) }}
+            {{ form(form) }}
+            </div>
+    </div>
+    <div class="col-md-4"></div>
 </div>
+
 {% endblock %}
